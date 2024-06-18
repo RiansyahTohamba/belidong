@@ -68,3 +68,5 @@ end
 
 gem "devise", "~> 4.9"
 gem "rspec", "~> 3.13"
+
+gem "factory_bot_rails", "~> 6.4"
