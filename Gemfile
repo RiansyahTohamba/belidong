@@ -67,7 +67,7 @@ group :test do
   gem "rspec", "~> 3.13"
   gem "rspec-rails", "~> 6.1"
   gem "factory_bot_rails", "~> 6.4"
-  gem "simplecov", "~> 0.22.0"`
+  gem "simplecov", "~> 0.22.0"
 end
 
 gem "devise", "~> 4.9"
