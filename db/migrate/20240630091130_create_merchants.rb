@@ -1,7 +1,7 @@
 class CreateMerchants < ActiveRecord::Migration[7.1]
   def change
     create_table :merchants do |t|
-      t.string :name
+      t.string :owner_name
       t.string :email
       t.string :store_name
       t.text :description

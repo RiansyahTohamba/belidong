@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  owner_name: MyString
   email: MyString
   store_name: MyString
   description: MyText
@@ -9,7 +9,7 @@ one:
   has_storefront: false
 
 two:
-  name: MyString
+  owner_name: MyString
   email: MyString
   store_name: MyString
   description: MyText

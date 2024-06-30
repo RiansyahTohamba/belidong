@@ -18,7 +18,7 @@ class MerchantsTest < ApplicationSystemTestCase
     fill_in "Email", with: @merchant.email
     check "Has storefront" if @merchant.has_storefront
     fill_in "Logo", with: @merchant.logo
-    fill_in "Name", with: @merchant.name
+    fill_in "Owner name", with: @merchant.owner_name
     fill_in "Store name", with: @merchant.store_name
     click_on "Create Merchant"
 
@@ -34,7 +34,7 @@ class MerchantsTest < ApplicationSystemTestCase
     fill_in "Email", with: @merchant.email
     check "Has storefront" if @merchant.has_storefront
     fill_in "Logo", with: @merchant.logo
-    fill_in "Name", with: @merchant.name
+    fill_in "Owner name", with: @merchant.owner_name
     fill_in "Store name", with: @merchant.store_name
     click_on "Update Merchant"
 
