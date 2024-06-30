@@ -14,6 +14,12 @@ class MerchantsTest < ApplicationSystemTestCase
     visit merchants_url
     click_on "New merchant"
 
+    fill_in "Description", with: @merchant.description
+    fill_in "Email", with: @merchant.email
+    check "Has storefront" if @merchant.has_storefront
+    fill_in "Logo", with: @merchant.logo
+    fill_in "Name", with: @merchant.name
+    fill_in "Store name", with: @merchant.store_name
     click_on "Create Merchant"
 
     assert_text "Merchant was successfully created"
@@ -24,6 +30,12 @@ class MerchantsTest < ApplicationSystemTestCase
     visit merchant_url(@merchant)
     click_on "Edit this merchant", match: :first
 
+    fill_in "Description", with: @merchant.description
+    fill_in "Email", with: @merchant.email
+    check "Has storefront" if @merchant.has_storefront
+    fill_in "Logo", with: @merchant.logo
+    fill_in "Name", with: @merchant.name
+    fill_in "Store name", with: @merchant.store_name
     click_on "Update Merchant"
 
     assert_text "Merchant was successfully updated"

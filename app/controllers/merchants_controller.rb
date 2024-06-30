@@ -65,6 +65,6 @@ class MerchantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def merchant_params
-      params.fetch(:merchant, {})
+      params.require(:merchant).permit(:name, :email, :store_name, :description, :logo, :has_storefront)
     end
 end

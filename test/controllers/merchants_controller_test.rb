@@ -17,7 +17,7 @@ class MerchantsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create merchant" do
     assert_difference("Merchant.count") do
-      post merchants_url, params: { merchant: {  } }
+      post merchants_url, params: { merchant: { description: @merchant.description, email: @merchant.email, has_storefront: @merchant.has_storefront, logo: @merchant.logo, name: @merchant.name, store_name: @merchant.store_name } }
     end
 
     assert_redirected_to merchant_url(Merchant.last)
@@ -34,7 +34,7 @@ class MerchantsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update merchant" do
-    patch merchant_url(@merchant), params: { merchant: {  } }
+    patch merchant_url(@merchant), params: { merchant: { description: @merchant.description, email: @merchant.email, has_storefront: @merchant.has_storefront, logo: @merchant.logo, name: @merchant.name, store_name: @merchant.store_name } }
     assert_redirected_to merchant_url(@merchant)
   end
 
