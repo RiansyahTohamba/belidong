@@ -1,11 +1,30 @@
+# class Repository
+#   def find_all
+#     @merchants = Merchant.all()
+#   end
+  
+#   def find(merchant_id)
+#     Merchant.find(merchant_id)
+#   end
+
+#   def new(*args)
+#     Merchant.new(*args)
+#   end
+
+#   def update
+
+#   end
+# end
+
 class MerchantsController < ApplicationController
   before_action :set_merchant, only: %i[ show edit update destroy ]
 
   # GET /merchants or /merchants.json
   def index
-    # @merchants = Merchant.all
-    @merchants = Merchant.paginate(page: params[:page])
+    # repo.find_all
+    @merchants = Merchant.all
   end
+
 
   # GET /merchants/1 or /merchants/1.json
   def show
@@ -67,5 +86,9 @@ class MerchantsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def merchant_params
       params.require(:merchant).permit(:owner_name, :email, :store_name, :description, :logo, :has_storefront)
+    end
+
+    def repo
+      @repo ||= Repository.new
     end
 end
