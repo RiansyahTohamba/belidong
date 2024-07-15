@@ -74,3 +74,5 @@ gem "devise", "~> 4.9"
 
 # gem "pg"
 gem "pg", "~> 1.5"
+
+gem "will_paginate", "~> 4.0"

@@ -3,7 +3,8 @@ class MerchantsController < ApplicationController
 
   # GET /merchants or /merchants.json
   def index
-    @merchants = Merchant.all
+    # @merchants = Merchant.all
+    @merchants = Merchant.paginate(page: params[:page])
   end
 
   # GET /merchants/1 or /merchants/1.json

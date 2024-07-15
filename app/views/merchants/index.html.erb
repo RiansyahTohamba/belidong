@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Merchants</h1>
-
+<%= will_paginate @merchants %>
 <div id="merchants">
   <% @merchants.each do |merchant| %>
     <%= render merchant %>
