@@ -2,13 +2,31 @@
 
 <h1>Merchants</h1>
 <%= will_paginate @merchants %>
+<%= link_to "New merchant", new_merchant_path %>
 <div id="merchants">
-  <% @merchants.each do |merchant| %>
-    <%= render merchant %>
-    <p>
-      <%= link_to "Show this merchant", merchant %>
-    </p>
+  <table>
+    <tr>
+      <th>Owner name</th>
+      <th>Email
+      </th>
+      <th>
+        Store name
+      </th>
+      <th> Has storefront</th>
+      <th> Action</th>
+    </tr>
+    
+    <% @merchants.each do |merchant| %>
+    <tr>
+      <td><%= merchant.owner_name %></td>
+      <td><%= merchant.email %></td>
+      <td><%= merchant.store_name %></td>
+      <td><%= merchant.has_storefront %></td>        
+      <td><%= merchant.has_storefront %></td>   
+      <td><%= link_to "Show this merchant", merchant %></td>     
+    </tr>
+    
   <% end %>
+  </table>
 </div>
 
-<%= link_to "New merchant", new_merchant_path %>
