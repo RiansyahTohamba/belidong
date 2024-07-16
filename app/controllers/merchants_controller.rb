@@ -1,28 +1,31 @@
-# class Repository
-#   def find_all
-#     @merchants = Merchant.all()
-#   end
+class Repository
+  def find_all
+    Merchant.all()
+  end
   
-#   def find(merchant_id)
-#     Merchant.find(merchant_id)
-#   end
+  def find(merchant_id)
+    Merchant.find(merchant_id)
+  end
 
-#   def new(*args)
-#     Merchant.new(*args)
-#   end
+  def new_merchant(*args)
+    Merchant.new(*args)
+  end
 
-#   def update
+  def update(merchant, merchant_attrs)
+    merchant.update(merchant_attrs)
+  end
 
-#   end
-# end
+  def save(merchant)
+    merchant.save
+  end
+end
 
 class MerchantsController < ApplicationController
   before_action :set_merchant, only: %i[ show edit update destroy ]
 
   # GET /merchants or /merchants.json
   def index
-    # repo.find_all
-    @merchants = Merchant.all
+    @merchants = repo.find_all
   end
 
 
@@ -32,7 +35,7 @@ class MerchantsController < ApplicationController
 
   # GET /merchants/new
   def new
-    @merchant = Merchant.new
+    @merchant = repo.new_merchant
   end
 
   # GET /merchants/1/edit
@@ -41,8 +44,8 @@ class MerchantsController < ApplicationController
 
   # POST /merchants or /merchants.json
   def create
-    @merchant = Merchant.new(merchant_params)
-
+    # @merchant = Merchant.new(merchant_params)
+    @merchant = repo.new_merchant(merchant_params)
     respond_to do |format|
       if @merchant.save
         format.html { redirect_to merchant_url(@merchant), notice: "Merchant was successfully created." }
@@ -57,7 +60,8 @@ class MerchantsController < ApplicationController
   # PATCH/PUT /merchants/1 or /merchants/1.json
   def update
     respond_to do |format|
-      if @merchant.update(merchant_params)
+      # if @merchant.update(merchant_params)
+      if repo.update(merchant_params)
         format.html { redirect_to merchant_url(@merchant), notice: "Merchant was successfully updated." }
         format.json { render :show, status: :ok, location: @merchant }
       else
